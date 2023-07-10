@@ -2,7 +2,19 @@ body {
     background-color: white;
     font-family: Arial;
   }
-  
+/* Firefox */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: light;
+    }
+}
+
+/* Chrome */
+@media (forced-colors: active) {
+    :root {
+        color-scheme: light;
+    }
+}
   .container {
     display: flex;
     justify-content: center;
