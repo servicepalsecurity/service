@@ -19,7 +19,7 @@
 				{% csrf_token %}
 				<div class="password-input">
 					<input type="password" id="current-password" name="current-password" placeholder="Enter current password">
-					<button type="button" class="show-password-button" display='none' onclick="togglePasswordVisibility('current-password')">
+					<button type="button" class="show-password-button" onclick="togglePasswordVisibility('current-password')">
 						<img id="eye" src="{% static 'myapp/images/eye-icon.png' %}" alt="Show Password">
 					</button>
 				</div>
