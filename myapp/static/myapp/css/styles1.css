@@ -41,8 +41,10 @@ p {
 .form-div {
   display: flex;
   flex-direction: column;
-  width: 400px; /* Set a fixed width for the form */
+  width: 320px; /* Set a fixed width for the form */
   margin: 0 auto; /* Center the form horizontally */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 input[type="password"] {
